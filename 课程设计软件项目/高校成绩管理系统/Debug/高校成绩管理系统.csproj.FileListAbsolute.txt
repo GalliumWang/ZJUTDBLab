@@ -1,0 +1,13 @@
+F:\VS工程\高校成绩管理系统\高校成绩管理系统\bin\Debug\高校成绩管理系统.exe.config
+F:\VS工程\高校成绩管理系统\高校成绩管理系统\bin\Debug\高校成绩管理系统.exe
+F:\VS工程\高校成绩管理系统\高校成绩管理系统\bin\Debug\高校成绩管理系统.pdb
+F:\VS工程\高校成绩管理系统\高校成绩管理系统\obj\Debug\高校成绩管理系统.csprojResolveAssemblyReference.cache
+F:\VS工程\高校成绩管理系统\高校成绩管理系统\obj\Debug\高校成绩管理系统.Properties.Resources.resources
+F:\VS工程\高校成绩管理系统\高校成绩管理系统\obj\Debug\高校成绩管理系统.登陆界面.resources
+F:\VS工程\高校成绩管理系统\高校成绩管理系统\obj\Debug\高校成绩管理系统.csproj.GenerateResource.Cache
+F:\VS工程\高校成绩管理系统\高校成绩管理系统\obj\Debug\高校成绩管理系统.exe
+F:\VS工程\高校成绩管理系统\高校成绩管理系统\obj\Debug\高校成绩管理系统.pdb
+F:\VS工程\高校成绩管理系统\高校成绩管理系统\obj\Debug\高校成绩管理系统.学生信息录入.resources
+F:\VS工程\高校成绩管理系统\高校成绩管理系统\obj\Debug\高校成绩管理系统.专业信息录入.resources
+F:\VS工程\高校成绩管理系统\高校成绩管理系统\obj\Debug\高校成绩管理系统.学生主界面.resources
+F:\VS工程\高校成绩管理系统\高校成绩管理系统\obj\Debug\高校成绩管理系统.学生个人信息查询.resources
