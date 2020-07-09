@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context reloadable="true">
+<Resource
+name="jdbc/dbdesign"
+type="javax.sql.DataSource"
+maxActive="4"
+maxIdle="2"
+username="sa"
+maxWait="5000"
+driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+password="wangjia19990908"
+url="jdbc:sqlserver://127.0.0.1:1433;datdBaseName=wangjiaMIS04"
+/>
+</Context>

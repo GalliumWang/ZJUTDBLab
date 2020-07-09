@@ -1,0 +1,114 @@
+package DAO;
+import model.*;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.*;
+public class studentDao  extends BaseDao{
+        public ArrayList<Grade> getGrade(String no){
+        	String sql="select pany_Cname04,pany_Ccredit04,pany_Tname04,pany_grade04,pany_xq04 \r\n" + 
+        			"from panyinMIS04.dbo.pany_course04,panyinMIS04.dbo.pany_teacher04,panyinMIS04.dbo.pany_Grade04 \r\n" + 
+        			"where panyinMIS04.dbo.pany_Grade04.pany_Sno04=? and panyinMIS04.dbo.pany_Grade04.pany_Cno04=panyinMIS04.dbo.pany_course04.pany_Cno04 and panyinMIS04.dbo.pany_Grade04.pany_Tno04=panyinMIS04.dbo.pany_teacher04.pany_Tno04";
+        	Connection conn;
+        	ArrayList<Grade> g=new ArrayList<Grade>();
+			try {
+				conn = dataSource.getConnection();
+				PreparedStatement pstmt=conn.prepareCall(sql);
+			    pstmt.setString(1, no);
+			    ResultSet rst=pstmt.executeQuery();
+			    while(rst.next()) {
+			    	Grade a=new Grade();
+			    	a.setCname(rst.getString("pany_Cname04"));
+			    	a.setXf(rst.getFloat("pany_Ccredit04"));
+			    	a.setTname(rst.getString("pany_Tname04"));
+			    	a.setGrade(rst.getFloat("pany_grade04"));
+			    	a.setTime(rst.getString("pany_xq04"));
+			    	g.add(a);
+			    }
+			    conn.close();rst.close();
+			    return g;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return null;
+			}
+        }
+        public stud getP(String no) {
+        	String sql="select * from panyinMIS04.dbo.pany_student04 where pany_Sno04=?";
+        	try {
+        		stud s=new stud();
+				Connection conn=dataSource.getConnection();
+				PreparedStatement pstmt=conn.prepareCall(sql);
+			    pstmt.setString(1, no);
+			    ResultSet rst=pstmt.executeQuery();
+			    if(rst.next()) {
+			    	s.setSno(rst.getString("pany_Sno04"));
+			    	s.setSname(rst.getString("pany_Sname04"));
+			    	s.setCredit(rst.getFloat("pany_Scredit04"));
+			    	s.setSex(rst.getString("pany_Ssex04"));
+			    	s.setAge(rst.getInt("pany_Sage04"));
+			    	s.setArea(rst.getString("pany_area04"));
+			    }
+			    conn.close();rst.close();
+			    return s;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();return null;
+			}
+        }
+        public String getC(String no) {
+        	String Class=null;
+        	String sql="select pany_no04 from panyinMIS04.dbo.pany_fb04 where pany_Sno04=?";
+        	try {
+				Connection conn=dataSource.getConnection();
+				PreparedStatement pstmt=conn.prepareCall(sql);
+				pstmt.setString(1, no);ResultSet rst=pstmt.executeQuery();
+				if(rst.next()) {
+					Class=rst.getString("pany_no04");
+				}
+				return Class;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();return null;
+			}
+        }
+        public ArrayList<course> getCc(String no) {
+        	String sql="select pany_Cname04,pany_Ccredit04,pany_Tname04,pany_xq04 from panyinMIS04.dbo.pany_xk04,panyinMIS04.dbo.pany_course04,panyinMIS04.dbo.pany_teacher04 where pany_no04=? and panyinMIS04.dbo.pany_xk04.pany_Cno04=panyinMIS04.dbo.pany_course04.pany_Cno04 and panyinMIS04.dbo.pany_xk04.pany_Tno04=panyinMIS04.dbo.pany_teacher04.pany_Tno04";
+        	ArrayList<course> c=new ArrayList<course>();
+        	try {
+				Connection conn=dataSource.getConnection();
+				PreparedStatement pstmt=conn.prepareCall(sql);
+				pstmt.setString(1, no);ResultSet rst=pstmt.executeQuery();
+				while(rst.next()) {
+					course co=new course();
+					co.setCname(rst.getString("pany_Cname04"));
+					co.setCredit(rst.getString("pany_Ccredit04"));
+					co.setTname(rst.getString("pany_Tname04"));
+					co.setTime(rst.getString("pany_xq04"));
+					c.add(co);
+				}
+				conn.close();
+				rst.close();
+				return c;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();return null;
+			}
+        }
+        public boolean xiugai(String no,String ps) {
+        	try {
+				Connection conn=dataSource.getConnection();
+				CallableStatement cstmt = conn.prepareCall("{call panyinMIS04.dbo.xiugai(?,?)}");
+				cstmt.setString(1,no);
+				cstmt.setString(2, ps);
+				cstmt.executeUpdate();
+				return true;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();return false;
+			}
+        }
+}

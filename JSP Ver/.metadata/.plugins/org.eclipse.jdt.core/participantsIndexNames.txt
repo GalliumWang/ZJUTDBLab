@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+C:\Users\26340\Desktop\04_201706061724潘银数据库系统课程设计\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2899868944.index
+\dbdesign\src
+C:\Users\26340\Desktop\DBselfVer\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2899868944.index
+\dbdesign\src

@@ -1,0 +1,426 @@
+create table wangj_class04(
+wangj_no04 Char(10) primary key
+)
+//建立班级表
+
+insert into wangj_class04 values('计实1801')
+insert into wangj_class04 values('计实1802')
+insert into wangj_class04 values('计实1803')
+insert into wangj_class04 values('计实1804')
+insert into wangj_class04 values('计实1805')
+insert into wangj_class04 values('计科1801')
+insert into wangj_class04 values('计科1802')
+insert into wangj_class04 values('计科1803')
+insert into wangj_class04 values('计科1804')
+insert into wangj_class04 values('计科1805')
+//向班级表插入数据
+
+create table wangj_Area04(
+wangj_area04 Char(20)primary key
+)
+//创建区域表
+
+insert into wangj_Area04 values('河北省')
+insert into wangj_Area04 values('山西省')
+insert into wangj_Area04 values('辽宁省')
+insert into wangj_Area04 values('吉林省')
+insert into wangj_Area04 values('黑龙江省')
+insert into wangj_Area04 values('江苏省')
+insert into wangj_Area04 values('浙江省')
+insert into wangj_Area04 values('安徽省')
+insert into wangj_Area04 values('福建省')
+insert into wangj_Area04 values('台湾省')
+insert into wangj_Area04 values('江西省')
+insert into wangj_Area04 values('山东省')
+insert into wangj_Area04 values('河南省')
+insert into wangj_Area04 values('湖北省')
+insert into wangj_Area04 values('湖南省')
+insert into wangj_Area04 values('广东省')
+insert into wangj_Area04 values('海南省')
+insert into wangj_Area04 values('四川省')
+insert into wangj_Area04 values('贵州省')
+insert into wangj_Area04 values('云南省')
+insert into wangj_Area04 values('陕西省')
+insert into wangj_Area04 values('甘肃省')
+insert into wangj_Area04 values('青海省')
+insert into wangj_Area04 values('内蒙古自治区')
+insert into wangj_Area04 values('新疆维吾尔自治区')
+insert into wangj_Area04 values('广西壮族自治区')
+insert into wangj_Area04 values('宁夏回族自治区')
+insert into wangj_Area04 values('西藏自治区')
+//向区域表插入数据
+
+create table wangj_teacher04(
+wangj_Tno04 Char(10) primary key,
+wangj_Tname04 Char(20) not null,
+wangj_tel04 Char(11) not null,
+wangj_Tsex04 Char(2) not null,
+wangj_Tage04 Int,
+wangj_zc04 Char(10),
+wangj_zw04 Char(10) not null
+)
+//创建教师表
+
+insert into wangj_teacher04 values('T01','张三','18818958855','男',27,'讲师','普通教师')
+insert into wangj_teacher04 values('T02','范菁','13818958855','女',35,'教授','主任')
+insert into wangj_teacher04 values('T03','王五','18818958856','男',24,'讲师','普通教师')
+insert into wangj_teacher04 values('T04','戚翔宇','18819958855','男',37,'教授','普通教师')
+insert into wangj_teacher04 values('T05','王浙超','18818951855','男',37,'教授','主任')
+insert into wangj_teacher04 values('T06','冯小凤','18816958855','女',27,'讲师','普通教师')
+insert into wangj_teacher04 values('T07','陈燕','18818958155','女',27,'讲师','普通教师')
+insert into wangj_teacher04 values('T08','郑德明','18818958854','男',27,'副教授','普通教师')
+//向教师表插入信息
+
+create table wangj_prof04
+(wangj_Pno04 Char(2) primary key,
+wangj_Pname04 char(20) not null,
+wangj_Tno04 char(10) not null,
+constraint fk_Tno foreign key(wangj_Tno04) references wangj_teacher04
+)
+//创建专业表
+
+insert into wangj_prof04 values('01','计实','T02')
+insert into wangj_prof04 values('02','计科','T05')
+//向专业表插入信息
+
+create table wangj_student04(
+wangj_Sno04 Char(10) primary key,
+wangj_Sname04 char(20) not null,
+wangj_Scredit04 float,
+wangj_Ssex04 char(2) not null,
+wangj_Sage04 int,
+wangj_area04 char(20)not null,
+constraint fk_area foreign key(wangj_area04) references wangj_Area04
+)
+//创建学生表
+
+insert into wangj_student04 values('2018010101','蒋捷',0,'女',20,'新疆维吾尔自治区')
+insert into wangj_student04 values('2018010102','王佳',205,'男',20,'浙江省')
+insert into wangj_student04 values('2018010103','方创杰',70,'男',20,'黑龙江省')
+insert into wangj_student04 values('2018010201','潘伟航',10,'男',20,'西藏自治区')
+insert into wangj_student04 values('2018010202','李彤',10,'男',20,'山东省')
+insert into wangj_student04 values('2018010203','潘青峰',205,'男',20,'陕西省')
+insert into wangj_student04 values('2018010301','喜羊羊',0,'女',27,'浙江省')
+insert into wangj_student04 values('2018010302','美羊羊',10,'男',20,'浙江省')
+insert into wangj_student04 values('2018010303','沸羊羊',20,'男',20,'浙江省')
+insert into wangj_student04 values('2018010401','余湧',120,'女',19,'福建省')
+insert into wangj_student04 values('2018010402','吕荷弟',5,'男',20,'浙江省')
+insert into wangj_student04 values('2018010403','邵安昊',20,'男',20,'浙江省')
+insert into wangj_student04 values('2018010501','石军士',10,'女',21,'浙江省')
+insert into wangj_student04 values('2018010502','吕淑倩',20,'男',20,'浙江省')
+insert into wangj_student04 values('2018010503','张君宝',210,'男',20,'浙江省')
+insert into wangj_student04 values('2018020101','戚翔',0,'女',21,'浙江省')
+insert into wangj_student04 values('2018020102','潘文君',18,'女',20,'浙江省')
+insert into wangj_student04 values('2018020103','阿萨德',20,'男',20,'新疆维吾尔自治区')
+insert into wangj_student04 values('2018020201','阿瓦达',0,'女',27,'广西壮族自治区')
+insert into wangj_student04 values('2018020202','潘伟',10,'男',20,'浙江省')
+insert into wangj_student04 values('2018020203','潘航',20,'男',20,'浙江省')
+insert into wangj_student04 values('2018020301','李彤彤',0,'女',27,'浙江省')
+insert into wangj_student04 values('2018020302','蒋捷捷',15,'男',20,'浙江省')
+insert into wangj_student04 values('2018020303','方创创',0,'男',20,'宁夏回族自治区')
+insert into wangj_student04 values('2018020401','蒋捷',0,'男',27,'浙江省')
+insert into wangj_student04 values('2018020402','王凌云',10,'男',20,'海南省')
+insert into wangj_student04 values('2018020403','叶凡',20,'男',20,'浙江省')
+insert into wangj_student04 values('2018020501','余湧湧',0,'女',27,'山西省')
+insert into wangj_student04 values('2018020502','戚忠达',10,'男',20,'江苏省')
+insert into wangj_student04 values('2018020503','姚圣扬',20,'男',20,'浙江省')
+//向学生表插入数据
+
+create table wangj_course04(
+wangj_Cno04 char(10) primary key,
+wangj_Cname04 char(20) not null,
+wangj_Ccredit04 float not null,
+wangj_time04 float not null,
+wangj_xq04 char(8) not null,
+wangj_type04 int not null
+)
+//创建课程表
+
+insert into wangj_course04 values('C01','数据库原理',3,80,'2019上',1)
+insert into wangj_course04 values('C02','计算机组成原理',3,80,'2019上',1)
+insert into wangj_course04 values('C03','Web前端开发',2,60,'2019上',0)
+insert into wangj_course04 values('C09','Web应用开发',3,80,'2019上',1)
+insert into wangj_course04 values('C04','算法分析',3,80,'2019上',1)
+insert into wangj_course04 values('C05','JavaEE',4,100,'2019上',1)
+insert into wangj_course04 values('C06','计算机网络原理',3,80,'2019上',1)
+insert into wangj_course04 values('C07','计算方法与实现',2,60,'2019上',0)
+insert into wangj_course04 values('C08','大学物理学',2.5,70,'2019上',0)
+insert into wangj_course04 values('C16','计算机网络原理',3,80,'2018下',1)
+insert into wangj_course04 values('C17','计算方法与实现',2,60,'2018下',0)
+//向课程表插入数据
+
+
+create table wangj_Grade04(
+wangj_Sno04 char(10) not null,
+wangj_Cno04 char(10) not null,
+wangj_Tno04 char(10) not null,
+wangj_grade04 float not null,
+constraint fk_s foreign key(wangj_Sno04) references wangj_student04,
+constraint fk_c foreign key(wangj_Cno04) references wangj_course04,
+constraint fk_t foreign key(wangj_Tno04) references wangj_teacher04
+)
+//创建成绩表
+
+
+
+
+insert into wangj_Grade04 values('2018010101','C16','T01',10)
+insert into wangj_Grade04 values('2018010102','C16','T01',90)
+insert into wangj_Grade04 values('2018010103','C16','T01',60)
+insert into wangj_Grade04 values('2018010201','C16','T02',90)
+insert into wangj_Grade04 values('2018010202','C16','T02',30)
+insert into wangj_Grade04 values('2018010203','C16','T02',80)
+//向成绩表插入数据
+
+create table wangj_fb04(
+wangj_Sno04 char(10) primary key,
+wangj_no04 char(10) not null,
+constraint fk_s1 foreign key(wangj_Sno04) references wangj_student04,
+constraint fk_no foreign key(wangj_no04) references wangj_class04
+)
+//创建分班表
+
+insert into wangj_fb04 values('2018010101','计实1801')
+insert into wangj_fb04 values('2018010102','计实1801')
+insert into wangj_fb04 values('2018010103','计实1801')
+insert into wangj_fb04 values('2018010201','计实1802')
+insert into wangj_fb04 values('2018010202','计实1802')
+insert into wangj_fb04 values('2018010203','计实1802')
+insert into wangj_fb04 values('2018010301','计实1803')
+insert into wangj_fb04 values('2018010302','计实1803')
+insert into wangj_fb04 values('2018010303','计实1803')
+insert into wangj_fb04 values('2018010401','计实1804')
+insert into wangj_fb04 values('2018010402','计实1804')
+insert into wangj_fb04 values('2018010403','计实1804')
+insert into wangj_fb04 values('2018010501','计实1805')
+insert into wangj_fb04 values('2018010502','计实1805')
+insert into wangj_fb04 values('2018010503','计实1805')
+insert into wangj_fb04 values('2018020101','计科1801')
+insert into wangj_fb04 values('2018020102','计科1801')
+insert into wangj_fb04 values('2018020103','计科1801')
+insert into wangj_fb04 values('2018020201','计科1802')
+insert into wangj_fb04 values('2018020202','计科1802')
+insert into wangj_fb04 values('2018020203','计科1802')
+insert into wangj_fb04 values('2018020301','计科1803')
+insert into wangj_fb04 values('2018020302','计科1803')
+insert into wangj_fb04 values('2018020303','计科1803')
+insert into wangj_fb04 values('2018020401','计科1804')
+insert into wangj_fb04 values('2018020402','计科1804')
+insert into wangj_fb04 values('2018020403','计科1804')
+insert into wangj_fb04 values('2018020501','计科1805')
+insert into wangj_fb04 values('2018020502','计科1805')
+insert into wangj_fb04 values('2018020503','计科1805')
+//向分班表插入数据
+
+create table wangj_Suser04(
+wangj_Sno04 char(10) primary key,
+wangj_password04 char(8) not null,
+constraint fk_s2 foreign key(wangj_Sno04) references wangj_student04,
+)
+//创建学生账户表
+
+
+insert into wangj_Suser04 values('2018010101','12345678')
+insert into wangj_Suser04 values('2018010102','12345678')
+insert into wangj_Suser04 values('2018010103','12345678')
+insert into wangj_Suser04 values('2018010201','12345678')
+insert into wangj_Suser04 values('2018010202','12345678')
+insert into wangj_Suser04 values('2018010203','12345678')
+insert into wangj_Suser04 values('2018010301','12345678')
+insert into wangj_Suser04 values('2018010302','12345678')
+insert into wangj_Suser04 values('2018010303','12345678')
+insert into wangj_Suser04 values('2018010401','12345678')
+insert into wangj_Suser04 values('2018010402','12345678')
+insert into wangj_Suser04 values('2018010403','12345678')
+insert into wangj_Suser04 values('2018010501','12345678')
+insert into wangj_Suser04 values('2018010502','12345678')
+insert into wangj_Suser04 values('2018010503','12345678')
+insert into wangj_Suser04 values('2018020101','12345678')
+insert into wangj_Suser04 values('2018020102','12345678')
+insert into wangj_Suser04 values('2018020103','12345678')
+insert into wangj_Suser04 values('2018020201','12345678')
+insert into wangj_Suser04 values('2018020202','12345678')
+insert into wangj_Suser04 values('2018020203','12345678')
+insert into wangj_Suser04 values('2018020301','12345678')
+insert into wangj_Suser04 values('2018020302','12345678')
+insert into wangj_Suser04 values('2018020303','12345678')
+insert into wangj_Suser04 values('2018020401','12345678')
+insert into wangj_Suser04 values('2018020402','12345678')
+insert into wangj_Suser04 values('2018020403','12345678')
+insert into wangj_Suser04 values('2018020501','12345678')
+insert into wangj_Suser04 values('2018020502','12345678')
+insert into wangj_Suser04 values('2018020503','12345678')
+//向学生账户表插入数据
+
+create table wangj_Tuser04(
+wangj_Tno04 char(10) primary key,
+wangj_password04 char(8) not null,
+constraint fk_t2 foreign key(wangj_Tno04) references wangj_teacher04,
+)
+//创建教师账户表
+
+insert into wangj_Tuser04 values('T01','12345678')
+insert into wangj_Tuser04 values('T02','12345678')
+insert into wangj_Tuser04 values('T03','12345678')
+insert into wangj_Tuser04 values('T04','12345678')
+insert into wangj_Tuser04 values('T05','12345678')
+insert into wangj_Tuser04 values('T06','12345678')
+insert into wangj_Tuser04 values('T07','12345678')
+insert into wangj_Tuser04 values('T08','12345678')
+//向教师账户表插入数据
+
+create table wangj_xk04(
+wangj_no04 char(10) not null,
+wangj_Cno04 char(10) not null,
+wangj_Tno04 char(10) not null,
+constraint fk_xk foreign key(wangj_Cno04) references wangj_course04,
+constraint fk_xk1 foreign key(wangj_no04) references wangj_class04,
+constraint fk_xk2 foreign key(wangj_Tno04) references wangj_teacher04
+)
+//创建选课表
+
+insert into wangj_xk04 values('计实1801','C01','T01')
+insert into wangj_xk04 values('计实1802','C01','T01')
+insert into wangj_xk04 values('计实1803','C01','T02')
+insert into wangj_xk04 values('计实1804','C01','T02')
+insert into wangj_xk04 values('计实1805','C01','T03')
+insert into wangj_xk04 values('计科1801','C01','T03')
+insert into wangj_xk04 values('计科1802','C01','T04')
+insert into wangj_xk04 values('计科1803','C01','T04')
+insert into wangj_xk04 values('计科1804','C01','T05')
+insert into wangj_xk04 values('计科1805','C01','T05')
+//向选课表插入信息
+
+
+
+create view wangj_rgview04
+as
+select wangj_Sno04,wangj_no04,wangj_Pname04
+from wangj_fb04,wangj_prof04
+where wangj_Sno04 LIKE '____01%' and wangj_Pno04='01'
+with check option
+//创建计实学生视图
+
+
+create view wangj_wgview04
+as
+select wangj_Sno04,wangj_no04,wangj_Pname04
+from wangj_fb04,wangj_prof04
+where wangj_Sno04 LIKE '____02%' and wangj_Pno04='02'
+with check option
+//创建计科学生视图
+
+create view wangj_xkview04
+as
+select wangj_fb04.wangj_Sno04,wangj_fb04.wangj_no04,wangj_Sname04,wangj_Cname04,wangj_Tname04
+from wangj_fb04,wangj_xk04,wangj_course04,wangj_teacher04,wangj_student04
+where wangj_fb04.wangj_no04=wangj_xk04.wangj_no04 and wangj_xk04.wangj_Tno04=wangj_teacher04.wangj_Tno04 and 
+wangj_xk04.wangj_Cno04=wangj_course04.wangj_Cno04 and wangj_fb04.wangj_Sno04=wangj_student04.wangj_Sno04
+with check option
+//创建选课结果视图
+
+create clustered index grade on wangj_Grade04(wangj_Sno04)
+create clustered index xks on wangj_xk04 (wangj_no04,wangj_Cno04,wangj_Tno04)
+//建立索引
+
+
+create trigger T2 on wangj_teacher04
+for insert ,update
+as 
+if(select wangj_Tage04 from inserted)<0
+begin
+print '年龄必须大于0，操作失败'
+rollback transaction
+end
+//教师表中建立年龄触发器
+
+
+create trigger T1 on wangj_student04
+for insert ,update
+as 
+if(select wangj_Sage04 from inserted)<0
+begin
+print '年龄必须大于0，操作失败'
+rollback transaction
+end
+//学生表中建立年龄触发器
+
+
+create trigger T4 on wangj_student04
+for insert ,update
+as 
+if(select wangj_Ssex04 from inserted)<>'男'and(select wangj_Ssex04 from inserted)<>'女'
+begin
+print '性别有误，操作失败'
+rollback transaction
+end
+//学生表中建立性别触发器
+
+
+
+create trigger T3 on wangj_teacher04
+for insert ,update
+as 
+if(select wangj_Tsex04 from inserted)<>'男'and(select wangj_Tsex04 from inserted)<>'女'
+begin
+print '性别有误，操作失败'
+rollback transaction
+end
+//教师表中建立性别触发器
+
+create procedure updatexf
+@wangj_Sno04 nvarchar(10),
+@wangj_Cno04 nvarchar(10),
+@wangj_Tno04 nvarchar(10),
+@xf float,
+@wangj_grade04 float
+as
+if @wangj_grade04>=60
+begin
+update wangj_student04
+set wangj_Scredit04=wangj_Scredit04+@xf
+where wangj_Sno04=@wangj_Sno04
+end
+//创建学分更新存储过程
+
+
+
+create procedure xiugai
+@wangj_Sno04 nvarchar(10),
+@password nvarchar(8)
+as
+begin
+update wangj_Suser04
+set wangj_password04=@password
+where wangj_Sno04=@wangj_Sno04
+end
+//创建学生修改密码存储过程
+
+
+create view cf 
+as
+select wangj_Cno04 as ID,avg(wangj_grade04)as sumary
+from wangj_Grade04
+group by wangj_Cno04
+//创建课程平均分视图
+
+create view zf with schemabinding
+as
+select wangj_Sno04 as ID,sum(wangj_grade04)as sumary
+from dbo.wangj_Grade04,dbo.wangj_course04
+where wangj_Grade04.wangj_Cno04=wangj_course04.wangj_Cno04
+group by wangj_Sno04
+
+//创建学生总分视图
+
+
+
+create  trigger T5 on wangj_Grade04
+for insert,update
+as 
+if (select wangj_grade04 from inserted)<0 or (select wangj_grade04 from inserted)>100
+begin
+print '成绩有误，操作失败'
+rollback transaction
+end
+//成绩表中建立成绩触发器
