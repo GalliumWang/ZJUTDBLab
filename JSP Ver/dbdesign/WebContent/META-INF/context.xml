@@ -8,7 +8,7 @@ maxIdle="2"
 username="sa"
 maxWait="5000"
 driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-password="wangjia19990908"
+password="......."
 url="jdbc:sqlserver://127.0.0.1:1433;datdBaseName=wangjiaMIS04"
 />
 </Context>
